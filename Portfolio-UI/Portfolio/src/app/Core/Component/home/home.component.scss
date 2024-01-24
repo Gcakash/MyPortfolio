@@ -1,0 +1,51 @@
+
+.background-image {
+  background-image: url('/assets/img/img4.png');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  height:100dvh;
+  overflow: hidden;
+}
+
+.container {
+  height: 100%;
+}
+
+.content-box {
+ background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 50%;
+  transform: translateY(-50%);
+}
+.title {
+  font-size: 2.5em;
+  color: #ffffff;
+  text-transform: uppercase;
+  font-family: 'Arial', sans-serif;
+}
+
+.subtitle {
+  font-size: 1.5em;
+  color: #ccc; 
+  font-family: 'Helvetica', sans-serif;
+}
+.typed-text {
+  display: inline-block;
+}
+/* Media queries for responsive font sizes */
+@media (max-width: 768px) {
+
+  .content-box {
+    margin-top: 60%;
+    transform: translateY(0);
+  }
+  .background-image {
+    background-size: cover;
+    background-position: 30%;
+  }
+}
+
+
