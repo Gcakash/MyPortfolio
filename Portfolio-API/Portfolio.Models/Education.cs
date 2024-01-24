@@ -21,7 +21,10 @@ namespace Portfolio.API.Models
 
         public string Activity { get; set; }
 
+        public DateTime StartDate { get; set; }
+
         public DateTime GraduationDate { get; set; }
+
     }
 
 }
