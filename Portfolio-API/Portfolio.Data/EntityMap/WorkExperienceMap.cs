@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Portfolio.API.Models;
 
-namespace Wallbee.Support.Data.EntityMap
+namespace Portfolio.API.Data.EntityMap
 {
     public class WorkExperienceMap : IEntityTypeConfiguration<WorkExperience>
     {
