@@ -9,7 +9,7 @@ namespace Portfolio.API.Models
 {
     public class BlogPost
     {
-        public int Id { get; set; }
+        public int BlogId { get; set; }
 
         public string Title { get; set; }
 
@@ -17,9 +17,11 @@ namespace Portfolio.API.Models
 
         public string Image { get; set; }
 
-        public DateTime DatePublished { get; set; }
+        public DateTime? DatePublished { get; set; }
 
         public bool IsDeleted { get; set; }
+
+        public virtual ICollection<BlogComment> BlogsComment { get; set; }
 
     }
 

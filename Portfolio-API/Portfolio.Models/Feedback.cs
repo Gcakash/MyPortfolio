@@ -7,9 +7,11 @@ using System.Threading.Tasks;
 
 namespace Portfolio.API.Models
 {
-    public class Contact
+    public class Feedback
     {
         public int Id { get; set; }
+
+        public string Title { get; set; }
 
         public string Email { get; set; }
 
@@ -17,11 +19,10 @@ namespace Portfolio.API.Models
 
         public string Phone { get; set; }
 
-        public string Country { get; set; }
+        public string Message { get; set; }
 
-        public string FullAddress1 { get; set; }
+        public DateTime? PostDate { get; set; }
 
-        public string FullAddress2 { get; set; }
 
     }
 

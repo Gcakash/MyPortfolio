@@ -7,21 +7,21 @@ using System.Threading.Tasks;
 
 namespace Portfolio.API.Models
 {
-    public class Contact
+    public class BlogComment
     {
         public int Id { get; set; }
 
-        public string Email { get; set; }
+        public int BlogId { get; set; }
 
         public string FullName { get; set; }
 
-        public string Phone { get; set; }
+        public string Message { get; set; }
 
-        public string Country { get; set; }
+        public DateTime? PostDate { get; set; }
 
-        public string FullAddress1 { get; set; }
+        public BlogPost BlogPost { get; set; }
 
-        public string FullAddress2 { get; set; }
+
 
     }
 
