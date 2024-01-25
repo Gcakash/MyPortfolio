@@ -7,13 +7,13 @@ using System.Text;
 using System.Threading.Tasks;
 using Portfolio.API.Models;
 
-namespace Wallbee.Support.Data.EntityMap
+namespace Portfolio.API.Data.EntityMap
 {
     public class BlogPostMap : IEntityTypeConfiguration<BlogPost>
     {
         public void Configure(EntityTypeBuilder<BlogPost> builder)
         {
-            builder.HasKey(x => x.Id);
+            builder.HasKey(x => x.BlogId);
             builder.Property(x => x.Image).IsRequired(false).HasColumnType("nvarchar(max)");
             builder.Property(x => x.Content).IsRequired(false).HasColumnType("nvarchar(max)");
             builder.Property(x => x.DatePublished).IsRequired(false);

@@ -9,16 +9,14 @@ using Portfolio.API.Models;
 
 namespace Portfolio.API.Data.EntityMap
 {
-    public class FeedbackMap : IEntityTypeConfiguration<Feedback>
+    public class BlogCommentMap : IEntityTypeConfiguration<BlogComment>
     {
-        public void Configure(EntityTypeBuilder<Feedback> builder)
+        public void Configure(EntityTypeBuilder<BlogComment> builder)
         {
             builder.HasKey(x => x.Id);
             builder.Property(x => x.FullName).IsRequired().HasMaxLength(100).HasColumnType("nvarchar");
-            builder.Property(x => x.Email).IsRequired(false).HasMaxLength(50).HasColumnType("nvarchar");
-            builder.Property(x => x.Title).IsRequired(false).HasMaxLength(200).HasColumnType("nvarchar");
             builder.Property(x => x.Message).IsRequired(false).HasColumnType("nvarchar(max)");
-            builder.Property(x => x.Phone).IsRequired().HasMaxLength(50).HasColumnType("nvarchar");
+            builder.HasOne(x => x.BlogPost).WithMany(x => x.BlogsComment).HasForeignKey(x => x.BlogId).IsRequired(false);
             builder.Property(x => x.PostDate).IsRequired(false);
         }
     }

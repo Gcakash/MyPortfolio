@@ -19,7 +19,7 @@ namespace Portfolio.API.Models
 
         public bool IsActive { get; set; }
 
-        public DateTime ActivationExpireDate { get; set; }
+        public DateTime? ActivationExpireDate { get; set; }
 
     }
 

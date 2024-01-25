@@ -11,7 +11,7 @@ namespace Portfolio.API.Models
     {
         public int UserId { get; set; }
 
-        public int? Gender { get; set; }
+        public string Gender { get; set; }
 
         public DateTime? DOB { get; set; }
 

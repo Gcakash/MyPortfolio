@@ -8,6 +8,6 @@
 
         public string Description { get; set; }
 
-        public int RateOutOfFive { get; set;}
+        public int? RateOutOfFive { get; set;}
     }
 }
