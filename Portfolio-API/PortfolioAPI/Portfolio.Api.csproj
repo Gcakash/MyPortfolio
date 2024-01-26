@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -7,6 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
+    <PackageReference Include="MediatR" Version="12.2.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.1">
       <PrivateAssets>all</PrivateAssets>
@@ -21,8 +23,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Portfolio.API.Common\Portfolio.API.Common.csproj" />
     <ProjectReference Include="..\Portfolio.Data\Portfolio.Data.csproj" />
-    <ProjectReference Include="..\Portfolio.Mediator\Portfolio.Mediator.csproj" />
+    <ProjectReference Include="..\Portfolio.Mediator\Portfolio.API.Mediator.csproj" />
     <ProjectReference Include="..\Portfolio.Models\Portfolio.Models.csproj" />
   </ItemGroup>
 
