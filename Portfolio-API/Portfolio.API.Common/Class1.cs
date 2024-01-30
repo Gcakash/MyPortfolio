@@ -1,4 +1,4 @@
-﻿namespace Portfolio.API.Mediator
+﻿namespace Portfolio.API.Common
 {
     public class Class1
     {
