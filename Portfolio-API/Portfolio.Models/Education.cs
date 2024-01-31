@@ -25,6 +25,8 @@ namespace Portfolio.API.Models
 
         public DateTime? GraduationDate { get; set; }
 
+        public bool IsActive { get; set; }
+
     }
 
 }

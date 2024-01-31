@@ -19,9 +19,8 @@ namespace Portfolio.API.Common.Models
 
         public DateTime? DatePublished { get; set; }
 
-        public bool IsDeleted { get; set; }
+        public bool IsActive { get; set; }
 
-        public virtual ICollection<BlogCommentModel> BlogsComment { get; set; }
 
     }
 

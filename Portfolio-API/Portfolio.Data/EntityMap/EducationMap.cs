@@ -17,6 +17,7 @@ namespace Portfolio.API.Data.EntityMap
             builder.Property(x => x.Activity).IsRequired(false).HasMaxLength(50).HasColumnType("nvarchar");
             builder.Property(x => x.StartDate).IsRequired(false);
             builder.Property(x => x.GraduationDate).IsRequired(false);
+            builder.Property(x => x.IsActive).HasAnnotation("DefaultValue", "true");
         }
     }
 }

@@ -20,7 +20,8 @@ namespace Portfolio.API.Data.EntityMap
             builder.Property(x => x.FirstName).IsRequired().HasMaxLength(50).HasColumnType("nvarchar");
             builder.Property(x => x.MiddleName).IsRequired(false).HasMaxLength(50).HasColumnType("nvarchar");
             builder.Property(x => x.LastName).IsRequired().HasMaxLength(50).HasColumnType("nvarchar");
-            builder.Property(x => x.Mobile).IsRequired(false).HasMaxLength(50).HasColumnType("nvarchar");         
+            builder.Property(x => x.Mobile).IsRequired(false).HasMaxLength(50).HasColumnType("nvarchar");
+            builder.Property(x => x.IsActive).HasAnnotation("DefaultValue", "true");
         }
     }
 }

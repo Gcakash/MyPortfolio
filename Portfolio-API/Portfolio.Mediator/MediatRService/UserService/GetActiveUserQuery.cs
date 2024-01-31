@@ -16,14 +16,13 @@ namespace Portfolio.API.MediatR.MediatRService.UserService
     /// <summary>
     /// 
     /// </summary>
-    /// <param name="UserId"></param>
     public record GetActiveUserQuery() : IRequest<ServiceResponse<UserInfoModel>>;
 
     public record GetActiveUserHandler(IDbContextFactory<ApplicationDbContext> DbContextFactory,
         IMapper Mapper, IMediator Mediator) :
-        IRequestHandler<GetUserByIdQuery, ServiceResponse<UserInfoModel>>
+        IRequestHandler<GetActiveUserQuery, ServiceResponse<UserInfoModel>>
     {
-        public async Task<ServiceResponse<UserInfoModel>> Handle(GetUserByIdQuery request, 
+        public async Task<ServiceResponse<UserInfoModel>> Handle(GetActiveUserQuery request, 
             CancellationToken cancellationToken)
         {
             ServiceResponse<UserInfoModel> response = new();

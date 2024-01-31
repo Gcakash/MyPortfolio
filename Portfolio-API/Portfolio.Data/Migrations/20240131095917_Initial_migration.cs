@@ -38,7 +38,7 @@ namespace Portfolio.Data.Migrations
                     Content = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Image = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DatePublished = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    IsDeleted = table.Column<bool>(type: "bit", nullable: false)
+                    IsActive = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -56,7 +56,8 @@ namespace Portfolio.Data.Migrations
                     Phone = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
                     Country = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: true),
                     FullAddress1 = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    FullAddress2 = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    FullAddress2 = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    IsActive = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -75,7 +76,8 @@ namespace Portfolio.Data.Migrations
                     Score = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
                     Activity = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
                     StartDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    GraduationDate = table.Column<DateTime>(type: "datetime2", nullable: true)
+                    GraduationDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    IsActive = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -93,7 +95,8 @@ namespace Portfolio.Data.Migrations
                     FullName = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     Phone = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Message = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    PostDate = table.Column<DateTime>(type: "datetime2", nullable: true)
+                    PostDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    IsActive = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -108,7 +111,8 @@ namespace Portfolio.Data.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Description = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: true),
-                    RateOutOfFive = table.Column<int>(type: "int", nullable: true)
+                    RateOutOfFive = table.Column<int>(type: "int", nullable: true),
+                    IsActive = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -123,7 +127,8 @@ namespace Portfolio.Data.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     URL = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    IsActive = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -163,7 +168,8 @@ namespace Portfolio.Data.Migrations
                     EndDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     IsCurrentyWorking = table.Column<bool>(type: "bit", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Refrance = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Refrance = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    IsActive = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -171,7 +177,7 @@ namespace Portfolio.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "BlogComment",
+                name: "BlogComments",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -179,13 +185,14 @@ namespace Portfolio.Data.Migrations
                     BlogId = table.Column<int>(type: "int", nullable: false),
                     FullName = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     Message = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    PostDate = table.Column<DateTime>(type: "datetime2", nullable: true)
+                    PostDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    IsActive = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_BlogComment", x => x.Id);
+                    table.PrimaryKey("PK_BlogComments", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_BlogComment_BlogPosts_BlogId",
+                        name: "FK_BlogComments_BlogPosts_BlogId",
                         column: x => x.BlogId,
                         principalTable: "BlogPosts",
                         principalColumn: "BlogId");
@@ -197,8 +204,8 @@ namespace Portfolio.Data.Migrations
                 values: new object[] { 1, null, "akashgc2054@gmail.com", true, "akashgc", "akash" });
 
             migrationBuilder.CreateIndex(
-                name: "IX_BlogComment_BlogId",
-                table: "BlogComment",
+                name: "IX_BlogComments_BlogId",
+                table: "BlogComments",
                 column: "BlogId");
         }
 
@@ -209,7 +216,7 @@ namespace Portfolio.Data.Migrations
                 name: "Admins");
 
             migrationBuilder.DropTable(
-                name: "BlogComment");
+                name: "BlogComments");
 
             migrationBuilder.DropTable(
                 name: "Contacts");

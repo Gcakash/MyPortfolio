@@ -19,9 +19,7 @@ namespace Portfolio.API.Common.Models
 
         public DateTime? PostDate { get; set; }
 
-        public BlogPostModel BlogPost { get; set; }
-
-
+        public bool IsActive { get; set; }
 
     }
 

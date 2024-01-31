@@ -14,6 +14,7 @@ namespace Portfolio.API.Data.EntityMap
             builder.Property(x => x.Name).IsRequired().HasMaxLength(50).HasColumnType("nvarchar");
             builder.Property(x => x.Description).IsRequired(false).HasColumnType("nvarchar(max)");
             builder.Property(x => x.URL).IsRequired().HasColumnType("nvarchar(max)");
+            builder.Property(x => x.IsActive).HasAnnotation("DefaultValue", "true");
         }
     }
 }

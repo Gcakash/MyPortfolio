@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using MediatR;
+using Microsoft.AspNetCore.Mvc;
+using Portfolio.API.Common.Models;
+using Portfolio.API.MediatR.MediatRService.BlogCommentService;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -8,36 +11,103 @@ namespace Portfolio.Api.Controllers
     [ApiController]
     public class BlogCommentController : ControllerBase
     {
-        // GET: api/<BlogCommentController>
+        private readonly IMediator _mediator;
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="mediator"></param>
+        public BlogCommentController(IMediator mediator)
+        {
+            _mediator = mediator;
+        }
+        /// <summary>
+        /// BlogComment index
+        /// </summary>
+        /// <returns> List of BlogComment </returns>
+
         [HttpGet]
-        public IEnumerable<string> Get()
+        public async Task<IActionResult> GetAsync()
         {
-            return new string[] { "value1", "value2" };
+            var response = await _mediator.Send(new GetBlogCommentQuery());
+            if (response != null)
+            {
+                return Ok(response);
+            }
+            return BadRequest();
         }
+        /// <summary>
+        /// Get the BlogComment 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>BlogComment details</returns>
 
-        // GET api/<BlogCommentController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public async Task<IActionResult> GetByIdAsync(int id)
         {
-            return "value";
-        }
+            var response = await _mediator.Send(new GetBlogCommentByIdQuery(id));
+            if (response != null)
+            {
+                return Ok(response);
+            }
+            return BadRequest();
 
-        // POST api/<BlogCommentController>
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
         }
-
-        // PUT api/<BlogCommentController>/5
+        /// <summary>
+        /// Update the BlogComment details
+        /// </summary>
+        /// <param name="model"></param>
+        /// <param name="id"></param>
+        /// <returns>BlogComment details</returns>
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public async Task<IActionResult> UpdateAsync([FromBody] BlogCommentModel model, int id)
         {
+            if (ModelState.IsValid)
+            {
+                var response = await _mediator.Send(new UpdateBlogCommentCommand(id, model));
+                if (response != null)
+                {
+                    return Ok(response);
+                }
+            }
+            return BadRequest();
+        }
+        /// <summary>
+        /// Delete the BlogComment
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>True or False</returns>
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteAsync(int id)
+        {
+            var response = await _mediator.Send(new DeleteBlogCommentCommand(id));
+            if (response != null)
+            {
+                return Ok(response);
+            }
+            return BadRequest();
         }
 
-        // DELETE api/<BlogCommentController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        /// <summary>
+        /// Create BlogComment
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns>BlogComment details</returns>
+
+        [HttpPost("insert")]
+        public async Task<IActionResult> InsertBlogCommentAsync(BlogCommentModel model)
         {
+            if (ModelState.IsValid)
+            {
+                var response = await _mediator.Send(new InsertBlogCommentCommand(model));
+                if (response != null)
+                {
+                    return Ok(response);
+                }
+            }
+            return BadRequest();
         }
+
     }
 }
+

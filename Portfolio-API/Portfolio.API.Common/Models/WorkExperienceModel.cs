@@ -27,6 +27,8 @@ namespace Portfolio.API.Common.Models
 
         public string Refrance { get; set; }
 
+        public bool IsActive { get; set; }
+
     }
 
 }

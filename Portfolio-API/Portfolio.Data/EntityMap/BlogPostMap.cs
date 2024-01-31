@@ -17,7 +17,7 @@ namespace Portfolio.API.Data.EntityMap
             builder.Property(x => x.Image).IsRequired(false).HasColumnType("nvarchar(max)");
             builder.Property(x => x.Content).IsRequired(false).HasColumnType("nvarchar(max)");
             builder.Property(x => x.DatePublished).IsRequired(false);
-            builder.Property(x => x.IsDeleted).HasAnnotation("DefaultValue", "false");
+            builder.Property(x => x.IsActive).HasAnnotation("DefaultValue", "true");
             builder.Property(x => x.Title).IsRequired().HasMaxLength(50).HasColumnType("nvarchar");         
         }
     }

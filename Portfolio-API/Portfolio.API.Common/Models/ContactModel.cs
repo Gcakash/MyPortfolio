@@ -23,6 +23,8 @@ namespace Portfolio.API.Common.Models
 
         public string FullAddress2 { get; set; }
 
+        public bool IsActive { get; set; }
+
     }
 
 }

@@ -16,6 +16,8 @@ namespace Portfolio.API.Common.Models
         public string URL { get; set; }
 
         public string Description { get; set; }
+
+        public bool IsActive { get; set; }
     }
 
 }
