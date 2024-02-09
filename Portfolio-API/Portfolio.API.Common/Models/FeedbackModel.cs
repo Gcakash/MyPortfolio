@@ -23,6 +23,7 @@ namespace Portfolio.API.Common.Models
 
         public DateTime? PostDate { get; set; }
 
+        public bool IsActive { get; set; }
 
     }
 

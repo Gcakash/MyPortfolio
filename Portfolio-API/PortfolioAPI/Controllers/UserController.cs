@@ -115,7 +115,7 @@ namespace Portfolio.Api.Controllers
         /// <param name="filter"></param>
         /// <returns></returns>
         
-         [HttpPost]
+         [HttpGet]
          [Route("Filter")]
          public async Task<IActionResult> GetActiveUserAsync()
          {

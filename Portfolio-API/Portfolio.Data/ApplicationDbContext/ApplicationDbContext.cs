@@ -45,6 +45,8 @@ namespace Portfolio.API.Data.ApplicationDbContext
 
         public DbSet<WorkExperience> WorkExperiences { get; set; }
 
+        public DbSet<BlogComment> BlogComments { get; set; }
+
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

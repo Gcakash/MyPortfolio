@@ -20,6 +20,7 @@ namespace Portfolio.API.Data.EntityMap
             builder.Property(x => x.Country).IsRequired(false).HasMaxLength(20).HasColumnType("nvarchar");
             builder.Property(x => x.FullAddress1).IsRequired(false).HasColumnType("nvarchar(max)");
             builder.Property(x => x.FullAddress2).IsRequired(false).HasColumnType("nvarchar(max)");
+            builder.Property(x => x.IsActive).HasAnnotation("DefaultValue", "true");
         }
     }
 }
