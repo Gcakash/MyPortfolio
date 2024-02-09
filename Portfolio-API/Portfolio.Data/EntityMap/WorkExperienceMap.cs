@@ -22,6 +22,7 @@ namespace Portfolio.API.Data.EntityMap
             builder.Property(x => x.EndDate).IsRequired(false);
             builder.Property(x => x.Description).IsRequired(false).HasColumnType("nvarchar(max)");
             builder.Property(x => x.Refrance).IsRequired(false).HasColumnType("nvarchar(max)");
+            builder.Property(x => x.IsActive).HasAnnotation("DefaultValue", "true");
         }
     }
 }

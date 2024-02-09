@@ -18,6 +18,7 @@ namespace Portfolio.API.Data.EntityMap
             builder.Property(x => x.Message).IsRequired(false).HasColumnType("nvarchar(max)");
             builder.HasOne(x => x.BlogPost).WithMany(x => x.BlogsComment).HasForeignKey(x => x.BlogId).IsRequired(false);
             builder.Property(x => x.PostDate).IsRequired(false);
+            builder.Property(x => x.IsActive).HasAnnotation("DefaultValue", "true");
         }
     }
 }

@@ -12,7 +12,7 @@ using Portfolio.API.Data.ApplicationDbContext;
 namespace Portfolio.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240124105642_Initial_migration")]
+    [Migration("20240131095917_Initial_migration")]
     partial class Initial_migration
     {
         /// <inheritdoc />
@@ -86,6 +86,10 @@ namespace Portfolio.Data.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar");
 
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit")
+                        .HasAnnotation("DefaultValue", "true");
+
                     b.Property<string>("Message")
                         .HasColumnType("nvarchar(max)");
 
@@ -96,7 +100,7 @@ namespace Portfolio.Data.Migrations
 
                     b.HasIndex("BlogId");
 
-                    b.ToTable("BlogComment");
+                    b.ToTable("BlogComments");
                 });
 
             modelBuilder.Entity("Portfolio.API.Models.BlogPost", b =>
@@ -116,9 +120,9 @@ namespace Portfolio.Data.Migrations
                     b.Property<string>("Image")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("IsDeleted")
+                    b.Property<bool>("IsActive")
                         .HasColumnType("bit")
-                        .HasAnnotation("DefaultValue", "false");
+                        .HasAnnotation("DefaultValue", "true");
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -158,6 +162,10 @@ namespace Portfolio.Data.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar");
 
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit")
+                        .HasAnnotation("DefaultValue", "true");
+
                     b.Property<string>("Phone")
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar");
@@ -185,6 +193,10 @@ namespace Portfolio.Data.Migrations
 
                     b.Property<DateTime?>("GraduationDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit")
+                        .HasAnnotation("DefaultValue", "true");
 
                     b.Property<string>("Location")
                         .HasColumnType("nvarchar(max)");
@@ -221,6 +233,10 @@ namespace Portfolio.Data.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar");
 
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit")
+                        .HasAnnotation("DefaultValue", "true");
+
                     b.Property<string>("Message")
                         .HasColumnType("nvarchar(max)");
 
@@ -253,6 +269,10 @@ namespace Portfolio.Data.Migrations
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar");
 
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit")
+                        .HasAnnotation("DefaultValue", "true");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(50)
@@ -276,6 +296,10 @@ namespace Portfolio.Data.Migrations
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit")
+                        .HasAnnotation("DefaultValue", "true");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -314,7 +338,8 @@ namespace Portfolio.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
+                        .HasColumnType("bit")
+                        .HasAnnotation("DefaultValue", "true");
 
                     b.Property<string>("LastName")
                         .IsRequired()
@@ -350,6 +375,10 @@ namespace Portfolio.Data.Migrations
 
                     b.Property<DateTime?>("EndDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit")
+                        .HasAnnotation("DefaultValue", "true");
 
                     b.Property<bool>("IsCurrentyWorking")
                         .HasColumnType("bit")

@@ -20,6 +20,7 @@ namespace Portfolio.API.Data.EntityMap
             builder.Property(x => x.Message).IsRequired(false).HasColumnType("nvarchar(max)");
             builder.Property(x => x.Phone).IsRequired().HasMaxLength(50).HasColumnType("nvarchar");
             builder.Property(x => x.PostDate).IsRequired(false);
+            builder.Property(x => x.IsActive).HasAnnotation("DefaultValue", "true");
         }
     }
 }
