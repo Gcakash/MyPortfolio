@@ -28,7 +28,6 @@ builder.Services.AddDbContextFactory<ApplicationDbContext>(options =>
 });
 
 
-
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddLogging(builder =>
 {
@@ -36,21 +35,30 @@ builder.Services.AddLogging(builder =>
            .AddFilter("System", LogLevel.Warning)
            .AddConsole();
 });
-if (builder.Environment.IsDevelopment())
+//if (builder.Environment.IsDevelopment())
+//{
+//    builder.Services.AddCors(options =>
+//    {
+
+//        options.AddDefaultPolicy(
+//            policy =>
+//            {
+//                policy.AllowAnyOrigin()
+//                    .AllowAnyHeader()
+//                    .AllowAnyMethod();
+//            });
+//    });
+//}
+builder.Services.AddCors(options =>
 {
-    builder.Services.AddCors(options =>
-    {
-
-        options.AddDefaultPolicy(
-            policy =>
-            {
-                policy.AllowAnyOrigin()
-                    .AllowAnyHeader()
-                    .AllowAnyMethod();
-            });
-    });
-}
-
+    options.AddPolicy("AllowOrigin",
+        builder =>
+        {
+            builder.WithOrigins("http://localhost:4200")
+                   .AllowAnyHeader()
+                   .AllowAnyMethod();
+        });
+});
 
 builder.Services.AddSwaggerGen(c =>
 {
@@ -70,6 +78,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors("AllowOrigin");
 
 app.UseAuthorization();
 

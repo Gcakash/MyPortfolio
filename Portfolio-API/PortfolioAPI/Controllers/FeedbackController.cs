@@ -95,7 +95,7 @@ namespace Portfolio.Api.Controllers
         /// <param name="model"></param>
         /// <returns>Feedback details</returns>
 
-         [HttpPost("Admin")]
+         [HttpPost]
          public async Task<IActionResult> InsertAsync(FeedbackModel model)
          {
              if (ModelState.IsValid)

@@ -12,7 +12,7 @@ import { HomeComponent } from './Core/Component/home/home.component';
     templateUrl: './app.component.html',
     styleUrl: './app.component.scss',
     imports: [CommonModule, RouterOutlet, NavbarComponent,
-       FooterComponent]
+       FooterComponent,]
 })
 export class AppComponent {
   title = 'Portfolio';

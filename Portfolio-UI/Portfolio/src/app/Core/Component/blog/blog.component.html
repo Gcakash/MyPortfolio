@@ -1,4 +1,68 @@
-<!-- <div class="container mt-4">
+<div class="app-container">
+
+<div class="profolio  bg-image" style="background-image: url('/assets/img/blog3.jpg');">
+  <div class="overlay-mf"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div id="profolio-mf" class="owl-carousel owl-theme">
+          <div class="profolio-box">
+            <div class="author-profolio">
+              <img src="/assets/img/profile.jpg" alt="" class="rounded-circle b-shadow-a profile-image">
+              <span class="author">Akash G C</span>
+            </div>
+            <div class="content-profolio">
+              <br>
+              <p class="description lead">
+                Hi, I'm Akash G C, a dedicated computer engineer with a strong passion for software development. 
+                I currently work as a Software Developer, leveraging my skills and knowledge to create innovative solutions.
+              </p>
+              <span class="comit"><i class="fa fa-quote-right"></i></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-12">
+      <h1 class="my-4">Latest Blog Posts</h1>
+    </div>
+    <div class="col-md-4" *ngFor="let post of blogPosts; let i = index">
+      <div class="card mb-4 border-0">
+        <img class="card-img-top" src="https://placekitten.com/800/400" alt="Card image cap">
+        <div class="card-body p-0">
+          <h2 class="card-title card-title-custom mb-0"><a href="#" class="text-decoration-none">This is title and it should be clickable</a></h2>
+          <p class="card-text card-description">Some part of the description will be here.Some part of the description will be here.Some part of the description will be here.Some part of the description will be here.Some part of the description will be here.</p>
+        </div>
+        <div class="card-footer bg-transparent border-0 text-muted card-footer-custom">
+          <div class="row align-items-center">
+            <div class="col-auto">
+              <img src="/assets/img/profile.jpg" class="rounded-circle mr-2" style="width: 30px; height: 30px;" alt="author icon">  <span class="author-name">Akash G C</span>
+            </div>
+            <div class="col">
+              <span class="text-muted">February 13, 2024</span>
+            </div>
+            <div class="col-auto ml-auto">
+              <span class="ml-2"><i class="bi bi-chat-dots"></i> 5</span>
+            </div>
+          </div>
+        </div>          
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<div class="container mt-4">
     <div class="row">
       <div class="col-md-8">
         <div *ngFor="let post of blogPosts" class="mb-4">
@@ -13,4 +77,12 @@
       </div>
     </div>
   </div>
-   -->
+  
+<div>
+<h1>https://placekitten.com/800/400</h1>
+<div *ngFor="let blog of blogs">
+  <h2>{{ blog.title }}</h2>
+  <p>{{ blog.content }}</p>
+</div>
+</div>
+</div>

@@ -1,14 +1,44 @@
-import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { BlogModel } from '../../../Models/Blog.model';
+import { BlogService } from '../../../Services/Blog/blog.service';
 
 @Component({
   selector: 'app-blog',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './blog.component.html',
   styleUrl: './blog.component.scss'
 })
 
-export class BlogComponent {
+export class BlogComponent implements OnInit {
+
+//blogs: BlogModel = { blogId: 0, title: '', content: '', image: '', datePublished: new Date(), isActive: true };
+
+  blogs: BlogModel[] = [];
+
+  constructor(private blogService: BlogService) { }
+
+  ngOnInit(): void {
+    this.loadBlogs();
+  }
+
+  loadBlogs() {
+    this.blogService.GetBlogs()
+      .subscribe((response: any) => {
+        if (response.type === 0) {
+        console.log('Feedback added successfully!');
+            this.blogs = response.result;
+          
+        } 
+        else {
+          console.error('Error:', response.Errors);
+        }  
+      });
+  }
+
+
+  
   blogPosts = [
     {
       title: 'Example Post 1',

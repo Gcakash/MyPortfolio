@@ -29,25 +29,38 @@ namespace Portfolio.API.MediatR.MediatRService.FeedbackService
 
             if (request.Feedback != null)
             {
-                using (var dbContext = await DbContextFactory.CreateDbContextAsync(cancellationToken))
+                try
                 {
-                    var dbFeedback = Mapper.Map<Feedback>(request.Feedback);
-                    dbContext.Add(dbFeedback);
-                    var result = await dbContext.SaveChangesAsync(cancellationToken);
 
-                    if (result != 0)
+
+
+                    using (var dbContext = await DbContextFactory.CreateDbContextAsync(cancellationToken))
                     {
-                        request.Feedback.Id = dbFeedback.Id;
-                        response.Result = request.Feedback;
-                        response.Type = ServiceResponseTypes.SUCCESS;
+                        var dbFeedback = Mapper.Map<Feedback>(request.Feedback);
+                        dbContext.Add(dbFeedback);
+                        var result = await dbContext.SaveChangesAsync(cancellationToken);
+
+                        if (result != 0)
+                        {
+                            request.Feedback.Id = dbFeedback.Id;
+                            response.Result = request.Feedback;
+                            response.Type = ServiceResponseTypes.SUCCESS;
+                        }
+                        else
+                        {
+                            errors.Add(ErrorConstant.Insert_Error);
+                            response.Type = ServiceResponseTypes.ERROR;
+                            response.ErrorCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                            response.Errors = errors;
+                        }
                     }
-                    else
-                    {
-                        errors.Add(ErrorConstant.Insert_Error);
-                        response.Type = ServiceResponseTypes.ERROR;
-                        response.ErrorCode = ((int)HttpStatusCode.InternalServerError).ToString();
-                        response.Errors = errors;
-                    }
+                }
+                catch(Exception ex)
+                {
+                    errors.Add(ex.ToString());
+                    response.Type = ServiceResponseTypes.BADPARAMETERS;
+                    response.ErrorCode = ((int)HttpStatusCode.BadRequest).ToString();
+                    response.Errors = errors;
                 }
             }
             else

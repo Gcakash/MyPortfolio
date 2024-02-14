@@ -1,0 +1,226 @@
+
+
+  
+  /*======================================
+  //--//-->   BLOG-SINGLE
+  ======================================*/
+  
+  .post-box,
+  .form-comments,
+  .box-comments,
+  .widget-sidebar {
+    padding: 2rem;
+    background-color: #fff;
+    margin-bottom: 3rem;
+  }
+  
+  .blog-wrapper .article-title {
+    font-size: 1.5rem;
+  }
+  
+  .blog-wrapper .post-meta {
+    margin: 1rem 0;
+  }
+  
+  .blog-wrapper .post-meta ul {
+    border-left: 4px solid #0078ff;
+    margin-top: 1rem;
+  }
+  
+  .blog-wrapper .post-meta ul li {
+    display: inline-block;
+    margin-left: 15px;
+  }
+  
+  .blog-wrapper .post-meta ul a {
+    color: #0078ff;
+  }
+  
+  .blog-wrapper .post-meta ul span {
+    color: #1e1e1e;
+  }
+  
+  .blog-wrapper .blockquote {
+    border-left: 4px solid #0078ff;
+    padding: 18px;
+    font-style: italic;
+  }
+  
+  /*------/ Comments /------*/
+  
+  .box-comments .list-comments li {
+    padding-bottom: 40px;
+  }
+  
+  .box-comments .list-comments .comment-avatar {
+    display: table-cell;
+    vertical-align: top;
+  }
+  
+  .box-comments .list-comments .comment-avatar img {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .box-comments .list-comments .comment-author {
+    font-size: 1.3rem;
+  }
+  
+  .box-comments .list-comments .comment-details {
+    display: table-cell;
+    vertical-align: top;
+    padding-left: 25px;
+  }
+  
+  .box-comments .list-comments a {
+    color: #0078ff;
+  }
+  
+  .box-comments .list-comments span {
+    color: #1e1e1e;
+    font-style: italic;
+  }
+  
+  .box-comments .comment-children {
+    margin-left: 40px;
+  }
+  
+  /*------/ Sidebar /------*/
+  
+  .widget-sidebar .sidebar-title {
+    font-size: 1.6rem;
+    font-weight: 600;
+    border-left: 5px solid #0078ff;
+    padding-left: 15px;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+  
+  .widget-sidebar .list-sidebar li {
+    position: relative;
+    padding: 6px 0 6px 24px;
+  }
+  
+  .widget-sidebar .list-sidebar li:before {
+    position: absolute;
+    content: "";
+    width: 10px;
+    height: 1px;
+    left: 0;
+    background-color: #0078ff;
+    top: 20px;
+  }
+  
+  .sidebar-search input {
+    background-color: #fff;
+    border-radius: 0;
+    transition: all 0.5s ease-in-out;
+  }
+  
+  .sidebar-search .btn-search {
+    background-color: #0078ff;
+    border-color: #0078ff;
+    border-radius: 0;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  
+  .widget-tags ul li {
+    display: inline-block;
+    background-color: #0078ff;
+    padding: .2rem .6rem;
+    margin-bottom: .5rem;
+    border-radius: 15px;
+  }
+  
+  .widget-tags ul li a {
+    color: #fff;
+  }
+  
+
+
+  ///Custome designe 
+  .app-container {
+    background-color: #ffffff; /* Example background color */
+  }
+  
+.profolio {
+    position: relative;
+    width: 100%;
+    height: 400px; 
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .overlay-mf {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(62, 62, 233, 0.5); /* Blue overlay color with half opacity */
+  }
+  
+  .author-profolio {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 150px; /* Adjust image size as needed */
+    height: 150px;
+    border-radius: 50%; /* Rounded shape */
+    overflow: hidden;
+  }
+  
+  .author-profolio img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .content-profolio {
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: #f5f5f5;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .profile-text {
+    color: #f5f2f2;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+
+  /* Custom CSS classes  for blog body*/
+.card-title-custom {
+  color: #333;
+  font-size: 1.2rem;
+  padding: 1rem 1rem 0.5rem 1rem; /* top, right, bottom, left */
+  margin-bottom: 0;
+}
+
+.card-description {
+  color: #666;
+  font-size: 1rem;
+  padding: 0 1rem; /* top-bottom, left-right */
+}
+
+.card-footer-custom {
+  color: #777;
+  font-size: 0.9rem;
+  padding: 0.5rem 1rem; /* top, right, bottom, left */
+}
+
+.card-footer-custom span {
+  font-size: 0.8rem;
+}
+.author-name {
+  color: #007bff; 
+  font-weight: bold; 
+
+}
